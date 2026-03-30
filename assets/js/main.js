@@ -154,24 +154,53 @@
     });
   }
 
-  /* ===== CONTACT FORM ===== */
+  /* ===== CONTACT FORM → WHATSAPP ===== */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const btn = this.querySelector('[type="submit"]');
-      const orig = btn.innerHTML;
-      btn.innerHTML = '&#10003; Message Sent!';
-      btn.style.background = '#2d7a3c';
-      btn.style.borderColor = '#2d7a3c';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.style.background = '';
-        btn.style.borderColor = '';
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3500);
+
+      const val = id => (document.getElementById(id)?.value || '').trim();
+
+      const firstName = val('firstName');
+      const lastName  = val('lastName');
+      const email     = val('email');
+      const phone     = val('phone');
+      const company   = val('company');
+      const service   = val('service');
+      const workers   = val('workers');
+      const startDate = val('startDate');
+      const message   = val('message');
+
+      const serviceLabels = {
+        cafeteria: 'On-Site Cafeteria Installation',
+        truck:     'Mobile Food Truck',
+        vending:   'Vending Machines',
+        cabin:     'Food Cabin',
+        meeting:   'Meeting Catering',
+        office:    'Office Provisions',
+        other:     'Other / Not Sure'
+      };
+
+      let text = `Hello Ad'z Catering! 👋\n\n`;
+      text += `*New Enquiry from Website*\n`;
+      text += `─────────────────────\n`;
+      text += `*Name:* ${firstName} ${lastName}\n`;
+      if (email)     text += `*Email:* ${email}\n`;
+      if (phone)     text += `*Phone:* ${phone}\n`;
+      if (company)   text += `*Company:* ${company}\n`;
+      if (service)   text += `*Service Needed:* ${serviceLabels[service] || service}\n`;
+      if (workers)   text += `*No. of Workers:* ${workers}\n`;
+      if (startDate) text += `*Start Date:* ${startDate}\n`;
+      if (message) {
+        text += `─────────────────────\n`;
+        text += `*Message:*\n${message}\n`;
+      }
+      text += `─────────────────────\n`;
+      text += `_Sent via adzcatering.co.uk_`;
+
+      const waUrl = `https://wa.me/447384583976?text=${encodeURIComponent(text)}`;
+      window.open(waUrl, '_blank');
     });
   }
 
