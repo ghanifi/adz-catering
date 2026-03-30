@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ad'z Catering Limited services — on-site cafeteria installation, mobile food trucks, vending machines, food cabins, meeting catering, and office provisions for UK construction sites.">
+  <title>Services — Ad'z Catering Limited</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .service-detail {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .service-detail:last-child { border-bottom: none; }
+    .service-detail__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .service-detail__inner.reverse { direction: rtl; }
+    .service-detail__inner.reverse > * { direction: ltr; }
+    .service-detail__image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 3px;
+      height: 420px;
+    }
+    .service-detail__image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .service-detail__image:hover img { transform: scale(1.05); }
+    .service-detail__badge {
+      position: absolute;
+      top: 20px; left: 20px;
+      background: var(--amber);
+      color: #0A0A0A;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 2px;
+    }
+    .service-detail__num {
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 700;
+      color: var(--border-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .service-detail__icon { font-size: 36px; margin-bottom: 16px; display: block; }
+    .service-detail__title {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .service-detail__title em { color: var(--amber); font-style: italic; }
+    .service-detail__text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .feature-list {
+      margin: 24px 0 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feature-list__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--cream-dim);
+      line-height: 1.5;
+    }
+    .feature-list__item::before {
+      content: '▸';
+      color: var(--amber);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    @media (max-width: 900px) {
+      .service-detail__inner { grid-template-columns: 1fr; gap: 40px; }
+      .service-detail__inner.reverse { direction: ltr; }
+      .service-detail__image { height: 300px; }
+      .service-detail__num { font-size: 56px; }
+      .service-detail__title { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-main">AD'Z</span>
+        <span class="nav__logo-sub">Catering Limited</span>
+      </a>
+      <div class="nav__links" role="menubar">
+        <a href="index.html"    class="nav__link" role="menuitem">Home</a>
+        <a href="about.html"    class="nav__link" role="menuitem">About</a>
+        <a href="services.html" class="nav__link active" role="menuitem">Services</a>
+        <a href="menu.html"     class="nav__link" role="menuitem">Menu</a>
+        <a href="gallery.html"  class="nav__link" role="menuitem">Gallery</a>
+        <a href="contact.html"  class="nav__link" role="menuitem">Contact</a>
+        <a href="contact.html"  class="btn btn-primary nav__cta">Get a Quote</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-label="Services page header">
+    <div class="page-hero__bg" style="background-image:url('assets/images/img05.jpg');" role="img" aria-label="Hot food counter with freshly prepared dishes"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <p class="page-hero__label">What We Offer</p>
+      <h1 class="page-hero__title">Our <em>Catering Solutions</em></h1>
+    </div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="section" style="padding-bottom:40px;" aria-label="Services introduction">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto;">
+        <p class="eyebrow" style="justify-content:center;">Complete Catering Solutions</p>
+        <h2 class="display-title" style="text-align:center;">Everything Your Site <em>Needs</em></h2>
+        <p class="lead" style="margin:0 auto;text-align:center;max-width:620px;">From fully fitted on-site cafeterias to flexible mobile food trucks, we design, install, and operate catering solutions that keep your workforce fuelled and performing at their best.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW CARDS -->
+  <section style="padding:40px 0 80px;" aria-label="Services overview">
+    <div class="container">
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <div class="service-card__num">01</div>
+          <span class="service-card__icon">🏗️</span>
+          <h3 class="service-card__title">On-Site Cafeteria</h3>
+          <p class="service-card__text">Design, installation, and full management of cafeterias at construction sites — built to your specifications.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">02</div>
+          <span class="service-card__icon">🚚</span>
+          <h3 class="service-card__title">Mobile Food Trucks</h3>
+          <p class="service-card__text">Flexible mobile units that travel to wherever your team is working, serving freshly prepared meals on demand.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">03</div>
+          <span class="service-card__icon">🥤</span>
+          <h3 class="service-card__title">Vending Machines</h3>
+          <p class="service-card__text">Beverage and snack vending machines available 24/7, ensuring constant access to refreshments on site.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">04</div>
+          <span class="service-card__icon">📦</span>
+          <h3 class="service-card__title">Food Cabins</h3>
+          <p class="service-card__text">High-hygiene, fast-install food cabins that are durable, practical, and ready to serve from day one.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">05</div>
+          <span class="service-card__icon">☕</span>
+          <h3 class="service-card__title">Meeting Catering</h3>
+          <p class="service-card__text">Food, drinks, and snacks for site office meetings — professionally presented and delivered on time.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">06</div>
+          <span class="service-card__icon">🍎</span>
+          <h3 class="service-card__title">Office Provisions</h3>
+          <p class="service-card__text">Weekly deliveries of fresh milk, fruits, and essentials for your office team — a small touch that makes a big difference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICE SECTIONS -->
+  <section class="section section--light" aria-label="Service details">
+    <div class="container">
+
+      <!-- Service 1 -->
+      <div class="service-detail">
+        <div class="service-detail__inner reveal">
+          <div class="service-detail__image">
+            <img src="assets/images/img05.jpg" alt="Fully equipped hot food counter at construction site" loading="lazy">
+            <span class="service-detail__badge">Core Service</span>
+          </div>
+          <div>
+            <div class="service-detail__num">01</div>
+            <span class="service-detail__icon">🏗️</span>
+            <h2 class="service-detail__title">On-Site Cafeteria <em>Installation &amp; Management</em></h2>
+            <p class="service-detail__text">We design, install, and operate modern, practical, and fully equipped cafeterias at construction sites. Our team handles everything — from the initial layout design to the daily running of the facility.</p>
+            <p class="service-detail__text">Our cafeteria solutions include fully kitted kitchens with professional-grade equipment, comfortable seating areas, and a varied menu that caters to diverse dietary needs and preferences.</p>
+            <ul class="feature-list">
+              <li class="feature-list__item">Custom cafeteria design tailored to your site layout</li>
+              <li class="feature-list__item">Professional kitchen installation and equipment supply</li>
+              <li class="feature-list__item">Daily catering operations managed by our trained staff</li>
+              <li class="feature-list__item">Full menu offering — breakfast, lunch, hot meals, snacks &amp; drinks</li>
+              <li class="feature-list__item">Regular deep cleans and hygiene compliance checks</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Enquire About Cafeteria Setup</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-detail">
+        <div class="service-detail__inner reverse reveal">
+          <div class="service-detail__image">
+            <img src="assets/images/img22.jpg" alt="Freshly prepared food served from mobile kitchen" loading="lazy">
+            <span class="service-detail__badge">Popular Choice</span>
+          </div>
+          <div>
+            <div class="service-detail__num">02</div>
+            <span class="service-detail__icon">🚚</span>
+            <h2 class="service-detail__title">Mobile <em>Food Trucks</em></h2>
+            <p class="service-detail__text">Ad'z Catering Limited provides mobile food trucks that bring flexibility to construction sites. Whether your team moves between locations or you need temporary catering during a transition, our food trucks adapt to your schedule.</p>
+            <p class="service-detail__text">Our mobile units are fully self-contained, equipped to serve hot and cold food, hot drinks, and snacks — delivering the same quality you'd expect from a fixed cafeteria, wherever you need it.</p>
+            <ul class="feature-list">
+              <li class="feature-list__item">Self-contained mobile units — no fixed infrastructure needed</li>
+              <li class="feature-list__item">Flexible scheduling to match site working hours</li>
+              <li class="feature-list__item">Full breakfast and lunch menu served fresh</li>
+              <li class="feature-list__item">Ideal for sites with limited space or temporary builds</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Book a Mobile Food Truck</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-detail">
+        <div class="service-detail__inner reveal">
+          <div class="service-detail__image">
+            <img src="assets/images/img16.jpg" alt="Full English breakfast served on site" loading="lazy">
+          </div>
+          <div>
+            <div class="service-detail__num">03</div>
+            <span class="service-card__icon" style="font-size:36px;margin-bottom:16px;display:block;">🥤</span>
+            <h2 class="service-detail__title">Beverage &amp; Snack <em>Vending Machines</em></h2>
+            <p class="service-detail__text">We provide and maintain beverage and snack vending machines across your site, ensuring workers always have access to refreshments during breaks — even outside of scheduled meal service times.</p>
+            <p class="service-detail__text">Stocked with a range of hot drinks (tea, coffee, hot chocolate), cold drinks (cans, water, energy drinks), snacks, and confectionery — all sourced from quality suppliers.</p>
+            <ul class="feature-list">
+              <li class="feature-list__item">24/7 access to drinks and snacks</li>
+              <li class="feature-list__item">Regular restocking and maintenance included</li>
+              <li class="feature-list__item">Range of hot and cold beverages</li>
+              <li class="feature-list__item">Ideal complement to any catering setup</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Enquire About Vending</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-detail">
+        <div class="service-detail__inner reverse reveal">
+          <div class="service-detail__image">
+            <img src="assets/images/img12.jpg" alt="Hot freshly prepared meal served on a plate" loading="lazy">
+            <span class="service-detail__badge">Fast Install</span>
+          </div>
+          <div>
+            <div class="service-detail__num">04</div>
+            <span class="service-detail__icon">📦</span>
+            <h2 class="service-detail__title">Food <em>Cabins</em></h2>
+            <p class="service-detail__text">Our food cabins are equipped to meet high hygiene standards and offer a fully functional catering space in a compact, robust format. Their fast installation and durability make them an invaluable solution for construction sites of all sizes.</p>
+            <p class="service-detail__text">Proven across multiple projects — including our 16ft and 20ft container deployments with Bovis Homes and Countryside — our cabins are designed to work within the constraints of active construction environments.</p>
+            <ul class="feature-list">
+              <li class="feature-list__item">Available in 16ft and 20ft container formats</li>
+              <li class="feature-list__item">Rapid installation — operational within days</li>
+              <li class="feature-list__item">Built to meet all food hygiene regulations</li>
+              <li class="feature-list__item">Durable construction for use in all weather conditions</li>
+              <li class="feature-list__item">Fully customisable internal layout</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Request a Food Cabin</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-detail">
+        <div class="service-detail__inner reveal">
+          <div class="service-detail__image">
+            <img src="assets/images/img21.jpg" alt="Meeting catering arrangement with fresh food" loading="lazy">
+          </div>
+          <div>
+            <div class="service-detail__num">05</div>
+            <span class="service-detail__icon">☕</span>
+            <h2 class="service-detail__title">Meeting <em>Preparations</em></h2>
+            <p class="service-detail__text">We provide food, drinks, and snacks for office meetings on your construction site. Whether it's a daily morning briefing or an important client presentation, we ensure your meeting is well-catered and professionally presented.</p>
+            <ul class="feature-list">
+              <li class="feature-list__item">Hot and cold drinks selection</li>
+              <li class="feature-list__item">Fresh pastries, sandwiches, and snacks</li>
+              <li class="feature-list__item">Flexible ordering — from small team meetings to large board sessions</li>
+              <li class="feature-list__item">Delivered and set up on time, every time</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Book Meeting Catering</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-detail">
+        <div class="service-detail__inner reverse reveal">
+          <div class="service-detail__image">
+            <img src="assets/images/img03.jpg" alt="Fresh omelette served with beans and fries" loading="lazy">
+          </div>
+          <div>
+            <div class="service-detail__num">06</div>
+            <span class="service-detail__icon">🍎</span>
+            <h2 class="service-detail__title">Office <em>Provisions</em></h2>
+            <p class="service-detail__text">On request for some of our projects, we provide weekly fresh milk and fruits for office staff — a simple but impactful service that shows your team you care about their wellbeing.</p>
+            <p class="service-detail__text">This service can be tailored to the needs and size of your site office, with flexible delivery schedules and product choices to suit your team's preferences.</p>
+            <ul class="feature-list">
+              <li class="feature-list__item">Weekly delivery of fresh milk and seasonal fruits</li>
+              <li class="feature-list__item">Customisable to your office's specific needs</li>
+              <li class="feature-list__item">Flexible delivery schedule — weekly, bi-weekly, or on demand</li>
+              <li class="feature-list__item">Additional grocery items available on request</li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">Set Up Office Provisions</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HEALTH & SAFETY -->
+  <section class="hs-section" aria-label="Health and safety">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="color:rgba(8,8,8,0.6);">Certified &amp; Compliant</p>
+        <h2 class="display-title on-light">Health &amp; <em>Safety</em></h2>
+        <p class="lead on-light" style="max-width:580px;">We value the quality of our products and the safety of our customers. For this reason we hold all the necessary documents and certifications required by law and industry standards.</p>
+      </div>
+      <div class="hs-grid reveal reveal-delay-2">
+        <div class="hs-card">
+          <span class="hs-card__icon">📋</span>
+          <h3 class="hs-card__title">All Certifications in Order</h3>
+          <p class="hs-card__text">We maintain and regularly update all food safety, hygiene, and operating certifications required to operate professionally on construction sites across the UK.</p>
+        </div>
+        <div class="hs-card">
+          <span class="hs-card__icon">🧼</span>
+          <h3 class="hs-card__title">Hygiene &amp; Contamination Prevention</h3>
+          <p class="hs-card__text">Ensuring health and safety in food preparation is crucial to prevent contamination and maintain the highest standards of food safety throughout our entire operation.</p>
+        </div>
+        <div class="hs-card">
+          <span class="hs-card__icon">🛡️</span>
+          <h3 class="hs-card__title">Fully Insured Operations</h3>
+          <p class="hs-card__text">All our operations are fully insured and our staff are trained in food hygiene, health and safety, and site-specific protocols before deployment on any project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner" aria-label="Get a quote">
+    <div class="cta-banner__bg" style="background-image:url('assets/images/img35.jpg');" role="img" aria-label="Freshly prepared food"></div>
+    <div class="cta-banner__overlay"></div>
+    <div class="cta-banner__content reveal">
+      <p class="eyebrow" style="justify-content:center;">Get Started Today</p>
+      <h2 class="cta-banner__title">Tailor-Made Catering for <em>Your Site</em></h2>
+      <p class="cta-banner__text">Tell us about your project and workforce, and we'll put together a bespoke catering proposal — with no obligation and a fast turnaround.</p>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn-primary">Request a Free Quote</a>
+        <a href="menu.html"    class="btn btn-outline">See Our Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo-main">AD'Z</div>
+          <span class="footer__logo-sub">Catering Limited</span>
+          <p class="footer__tagline">Fuelling construction sites with quality, nutritious meals. Setting the standard in on-site catering across the UK.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-btn" aria-label="Facebook">f</a>
+            <a href="#" class="footer__social-btn" aria-label="Instagram">&#9632;</a>
+            <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Navigation</h3>
+          <div class="footer__links">
+            <a href="index.html"    class="footer__link">Home</a>
+            <a href="about.html"    class="footer__link">About Us</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="menu.html"     class="footer__link">Our Menu</a>
+            <a href="gallery.html"  class="footer__link">Gallery</a>
+            <a href="contact.html"  class="footer__link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Services</h3>
+          <div class="footer__links">
+            <a href="services.html" class="footer__link">On-Site Cafeteria</a>
+            <a href="services.html" class="footer__link">Mobile Food Trucks</a>
+            <a href="services.html" class="footer__link">Vending Machines</a>
+            <a href="services.html" class="footer__link">Food Cabins</a>
+            <a href="services.html" class="footer__link">Meeting Catering</a>
+            <a href="services.html" class="footer__link">Office Provisions</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Contact</h3>
+          <div class="footer__links">
+            <span class="footer__link"><span class="footer__link-icon">📞</span> Contact us for details</span>
+            <a href="mailto:info@adzcatering.co.uk" class="footer__link"><span class="footer__link-icon">✉</span> info@adzcatering.co.uk</a>
+            <span class="footer__link"><span class="footer__link-icon">📍</span> United Kingdom</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 Ad'z Catering Limited. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn">f</a>
+          <a href="#" class="footer__social-btn">&#9632;</a>
+          <a href="#" class="footer__social-btn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

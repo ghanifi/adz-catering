@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ad'z Catering Limited — Premium on-site catering for construction sites across the UK. Mobile food trucks, cafeteria installation, and nutritious meals built for the build.">
+  <meta name="keywords" content="construction site catering, on-site catering UK, mobile food truck, cafeteria installation, site canteen">
+  <title>Ad'z Catering Limited — Fuelling Construction Sites Across the UK</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Home-only extras */
+    .about-home { background: var(--surface); }
+    .food-section { background: var(--black); padding: 0; }
+    .food-section__header { padding: 88px 28px 56px; max-width: var(--max-width); margin: 0 auto; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+      margin-top: 56px;
+    }
+    .why-item {
+      background: var(--card);
+      padding: 40px 36px;
+      transition: background 0.3s;
+    }
+    .why-item:hover { background: var(--card-hover); }
+    .why-item__num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--amber);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .why-item__title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 12px;
+    }
+    .why-item__text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .logo-showcase {
+      background: var(--surface);
+      padding: 64px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-showcase__label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .logo-showcase__img {
+      width: 280px;
+      margin: 0 auto;
+      border-radius: 8px;
+      opacity: 0.9;
+      transition: opacity 0.3s;
+    }
+    .logo-showcase__img:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Ad'z Catering Limited Home">
+        <span class="nav__logo-main">AD'Z</span>
+        <span class="nav__logo-sub">Catering Limited</span>
+      </a>
+      <div class="nav__links" role="menubar">
+        <a href="index.html"    class="nav__link" role="menuitem">Home</a>
+        <a href="about.html"    class="nav__link" role="menuitem">About</a>
+        <a href="services.html" class="nav__link" role="menuitem">Services</a>
+        <a href="menu.html"     class="nav__link" role="menuitem">Menu</a>
+        <a href="gallery.html"  class="nav__link" role="menuitem">Gallery</a>
+        <a href="contact.html"  class="nav__link" role="menuitem">Contact</a>
+        <a href="contact.html"  class="btn btn-primary nav__cta">Get a Quote</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero banner">
+    <div class="hero__bg" style="background-image:url('assets/images/img35.jpg');" role="img" aria-label="Freshly prepared grilled chicken with rice"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__texture"></div>
+    <div class="hero__content">
+      <div class="hero__eyebrow">Premium Construction Site Catering</div>
+      <h1 class="hero__title">
+        Fuel<br>
+        <em>The Build.</em>
+      </h1>
+      <p class="hero__sub">Hot, nutritious, and delicious meals delivered directly to your construction site. Setting the standard in on-site catering across the UK.</p>
+      <div class="hero__actions">
+        <a href="services.html" class="btn btn-primary">Explore Our Services</a>
+        <a href="menu.html"     class="btn btn-outline">View Our Menu</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-label">Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip" role="region" aria-label="Key statistics">
+    <div class="stats-strip__inner container">
+      <div class="stat-item">
+        <span class="stat-number" data-target="3" data-suffix="+">0+</span>
+        <span class="stat-label">Major Projects Completed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="1000" data-suffix="+">0+</span>
+        <span class="stat-label">Workers Fed Daily</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="100" data-suffix="%">0%</span>
+        <span class="stat-label">Food Safety Certified</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="6" data-suffix="">0</span>
+        <span class="stat-label">Catering Solutions Offered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT INTRO -->
+  <section class="split about-home" aria-label="About Ad'z Catering">
+    <div class="split__image">
+      <img src="assets/images/logo-catering.jpg" alt="Ad'z Catering Limited — Construction site kitchen illustration" loading="lazy">
+    </div>
+    <div class="split__content">
+      <div class="reveal">
+        <p class="eyebrow">Who We Are</p>
+        <h2 class="display-title">Built for the <em>People Who Build</em></h2>
+        <p class="lead" style="margin-bottom:24px;">At Ad'z Catering Limited, our vision is to boost energy levels, the well-being, and efficiency of construction workers by providing access to healthy, nutritious, and high-quality meals.</p>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:36px;">We aim to transform mealtimes into an enjoyable and reliable experience through well-balanced, delicious menus designed to meet the daily energy needs of workers. By continuously improving our services, we see ourselves as the leading brand shaping not only the catering services of today but also those of the future.</p>
+        <a href="about.html" class="btn btn-primary">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section section--darker" aria-label="Our services">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:52px;">
+        <p class="eyebrow">What We Offer</p>
+        <h2 class="display-title">Complete Catering <em>Solutions</em></h2>
+        <p class="lead">From on-site cafeterias to mobile food trucks — we design, install, and operate everything your construction team needs to stay fuelled and focused.</p>
+      </div>
+      <div class="services-grid reveal reveal-delay-2">
+        <div class="service-card">
+          <div class="service-card__num">01</div>
+          <span class="service-card__icon">🏗️</span>
+          <h3 class="service-card__title">On-Site Cafeteria Installation</h3>
+          <p class="service-card__text">We design, install, and operate modern, practical, and fully equipped cafeterias at construction sites — built to your specifications.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">02</div>
+          <span class="service-card__icon">🚚</span>
+          <h3 class="service-card__title">Mobile Food Trucks</h3>
+          <p class="service-card__text">Our mobile food trucks bring flexibility to construction sites, delivering freshly prepared meals wherever your team is working.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">03</div>
+          <span class="service-card__icon">🥤</span>
+          <h3 class="service-card__title">Vending Machines</h3>
+          <p class="service-card__text">Beverage and snack vending machines available around the clock, ensuring your workforce always has access to refreshments.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">04</div>
+          <span class="service-card__icon">📦</span>
+          <h3 class="service-card__title">Food Cabins</h3>
+          <p class="service-card__text">Our food cabins meet the highest hygiene standards. Fast to install and built to last — an invaluable solution for any site.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">05</div>
+          <span class="service-card__icon">☕</span>
+          <h3 class="service-card__title">Meeting Catering</h3>
+          <p class="service-card__text">We provide food, drinks, and snacks for office meetings — keeping your team sharp, satisfied, and ready to collaborate.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-card__num">06</div>
+          <span class="service-card__icon">🍎</span>
+          <h3 class="service-card__title">Office Provisions</h3>
+          <p class="service-card__text">On request, we provide weekly fresh milk, fruits, and essentials for office staff — a small touch that makes a big difference.</p>
+        </div>
+      </div>
+      <div class="reveal" style="margin-top:44px;text-align:center;">
+        <a href="services.html" class="btn btn-outline">All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD PHOTO GRID -->
+  <section class="food-section" aria-label="Our food">
+    <div class="food-section__header reveal">
+      <p class="eyebrow">Fresh Every Day</p>
+      <h2 class="display-title">Real Food. <em>Real Flavour.</em></h2>
+      <p class="lead">Every dish is prepared fresh with quality ingredients — hearty enough to power a full day on site.</p>
+    </div>
+    <div class="food-grid reveal reveal-delay-2">
+      <div class="food-grid__item food-grid__item--large">
+        <img src="assets/images/img05.jpg" alt="Hot food display counter with freshly prepared dishes" loading="lazy">
+      </div>
+      <div class="food-grid__item">
+        <img src="assets/images/img01.jpg" alt="Full English breakfast with beans, bacon, sausages and egg" loading="lazy">
+      </div>
+      <div class="food-grid__item">
+        <img src="assets/images/img10.jpg" alt="Chicken wrap with fries" loading="lazy">
+      </div>
+      <div class="food-grid__item">
+        <img src="assets/images/img12.jpg" alt="Grilled chicken with peas and fries" loading="lazy">
+      </div>
+      <div class="food-grid__item">
+        <img src="assets/images/img22.jpg" alt="Panini with chips and salad served at the counter" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section" aria-label="Why choose Ad'z Catering">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow">Why Us</p>
+        <h2 class="display-title">The Difference <em>You Can Taste</em></h2>
+        <p class="lead">Five reasons why construction companies across the UK trust Ad'z Catering Limited with their workforce.</p>
+      </div>
+      <div class="why-grid reveal reveal-delay-2">
+        <div class="why-item">
+          <div class="why-item__num">01</div>
+          <h3 class="why-item__title">Industry Experience</h3>
+          <p class="why-item__text">With years of experience in the construction sector, Ad'z Catering Limited understands the specific needs of construction sites and provides solutions that add value to your operations.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-item__num">02</div>
+          <h3 class="why-item__title">Quality &amp; Hygiene Assured</h3>
+          <p class="why-item__text">Food safety and hygiene are one of our top priorities. All our meals are prepared in compliance with hygiene standards, ensuring safe, fresh, and healthy dining experiences every day.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-item__num">03</div>
+          <h3 class="why-item__title">Solution-Oriented Approach</h3>
+          <p class="why-item__text">Whether it's a cafeteria, kitchen, food truck, or container, we provide services tailored to your specific requirements. Our flexible and innovative solutions enhance efficiency and convenience.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-item__num">04</div>
+          <h3 class="why-item__title">Efficiency &amp; Time Management</h3>
+          <p class="why-item__text">We offer fast and reliable services, minimising disruptions to your workflow. Your employees can make the most of their meal breaks with our streamlined solutions.</p>
+        </div>
+        <div class="why-item" style="grid-column:span 2;">
+          <div class="why-item__num">05</div>
+          <h3 class="why-item__title">Employee Satisfaction</h3>
+          <p class="why-item__text">Delicious and well-balanced meals improve your employees' morale and motivation, directly contributing to the success of your project. A well-fed team is a high-performing team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <div class="quote-section" role="blockquote" aria-label="Company mission statement">
+    <div class="container">
+      <div class="reveal">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">We aim to transform mealtimes into an enjoyable and reliable experience — setting a new standard in construction site catering across the United Kingdom.</p>
+        <span class="quote-author">Ad'z Catering Limited — Our Vision</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY TEASER -->
+  <section class="section section--light" aria-label="Gallery preview">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:40px;">
+        <p class="eyebrow">Food Gallery</p>
+        <h2 class="display-title">See What's <em>On the Plate</em></h2>
+        <p class="lead">A glimpse of the fresh, hearty food we serve every day to workers across UK construction sites.</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:3px;" class="reveal reveal-delay-2">
+      <div style="overflow:hidden;height:240px;"><img src="assets/images/img16.jpg" alt="Full English breakfast" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"></div>
+      <div style="overflow:hidden;height:240px;"><img src="assets/images/img03.jpg" alt="Omelette with beans and fries" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"></div>
+      <div style="overflow:hidden;height:240px;"><img src="assets/images/img21.jpg" alt="Chicken wrap" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"></div>
+      <div style="overflow:hidden;height:240px;"><img src="assets/images/img13.jpg" alt="Hearty hot meal" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"></div>
+      <div style="overflow:hidden;height:240px;"><img src="assets/images/img33.jpg" alt="Fresh food at the counter" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.07)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"></div>
+    </div>
+    <div class="container">
+      <div style="margin-top:36px;text-align:center;" class="reveal">
+        <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner" aria-label="Call to action">
+    <div class="cta-banner__bg" style="background-image:url('assets/images/img05.jpg');" role="img" aria-label="Food counter at construction site"></div>
+    <div class="cta-banner__overlay"></div>
+    <div class="cta-banner__content reveal">
+      <p class="eyebrow" style="justify-content:center;">Ready to Work Together?</p>
+      <h2 class="cta-banner__title">Let's Fuel Your <em>Next Project</em></h2>
+      <p class="cta-banner__text">Contact our team today to discuss your site's catering needs. Whether you need a full cafeteria setup or a mobile food solution — we're ready to deliver.</p>
+      <div class="cta-banner__actions">
+        <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+        <a href="menu.html"    class="btn btn-outline">View Our Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo-main">AD'Z</div>
+          <span class="footer__logo-sub">Catering Limited</span>
+          <p class="footer__tagline">Fuelling construction sites with quality, nutritious meals. Setting the standard in on-site catering across the UK.</p>
+          <div class="footer__socials" aria-label="Social media links">
+            <a href="#" class="footer__social-btn" aria-label="Facebook">f</a>
+            <a href="#" class="footer__social-btn" aria-label="Instagram">&#9632;</a>
+            <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Navigation</h3>
+          <div class="footer__links">
+            <a href="index.html"    class="footer__link">Home</a>
+            <a href="about.html"    class="footer__link">About Us</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="menu.html"     class="footer__link">Our Menu</a>
+            <a href="gallery.html"  class="footer__link">Gallery</a>
+            <a href="contact.html"  class="footer__link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Services</h3>
+          <div class="footer__links">
+            <a href="services.html" class="footer__link">On-Site Cafeteria</a>
+            <a href="services.html" class="footer__link">Mobile Food Trucks</a>
+            <a href="services.html" class="footer__link">Vending Machines</a>
+            <a href="services.html" class="footer__link">Food Cabins</a>
+            <a href="services.html" class="footer__link">Meeting Catering</a>
+            <a href="services.html" class="footer__link">Office Provisions</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Contact</h3>
+          <div class="footer__links">
+            <span class="footer__link"><span class="footer__link-icon">📞</span> Contact us for details</span>
+            <a href="mailto:info@adzcatering.co.uk" class="footer__link"><span class="footer__link-icon">✉</span> info@adzcatering.co.uk</a>
+            <span class="footer__link"><span class="footer__link-icon">📍</span> United Kingdom</span>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:16px;padding:11px 24px;font-size:10.5px;">Get a Quote</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 Ad'z Catering Limited. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn" aria-label="Facebook">f</a>
+          <a href="#" class="footer__social-btn" aria-label="Instagram">&#9632;</a>
+          <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

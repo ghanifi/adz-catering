@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Ad'z Catering Limited — get a free quote for on-site catering at your construction site. Fill in our enquiry form or call us directly. UK-based catering specialists.">
+  <title>Contact Us — Ad'z Catering Limited</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .contact-header-strip {
+      background: var(--amber);
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .contact-header-strip p {
+      font-size: 14px;
+      color: rgba(8,8,8,0.7);
+    }
+    .contact-header-strip strong {
+      font-size: 18px;
+      color: #0A0A0A;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      margin-bottom: 72px;
+    }
+    .info-card {
+      background: var(--card);
+      padding: 44px 36px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .info-card:hover { background: var(--card-hover); }
+    .info-card__icon {
+      font-size: 36px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .info-card__title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 12px;
+    }
+    .info-card__value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--cream);
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+    .info-card__sub {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .info-card__link {
+      font-size: 14px;
+      color: var(--amber);
+      border-bottom: 1px solid rgba(212,146,42,0.3);
+      transition: border-color 0.2s;
+    }
+    .info-card__link:hover { border-color: var(--amber); }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q::after {
+      content: '+';
+      font-family: var(--font-body);
+      font-size: 22px;
+      color: var(--amber);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    @media (max-width: 768px) {
+      .info-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-main">AD'Z</span>
+        <span class="nav__logo-sub">Catering Limited</span>
+      </a>
+      <div class="nav__links" role="menubar">
+        <a href="index.html"    class="nav__link" role="menuitem">Home</a>
+        <a href="about.html"    class="nav__link" role="menuitem">About</a>
+        <a href="services.html" class="nav__link" role="menuitem">Services</a>
+        <a href="menu.html"     class="nav__link" role="menuitem">Menu</a>
+        <a href="gallery.html"  class="nav__link" role="menuitem">Gallery</a>
+        <a href="contact.html"  class="nav__link active" role="menuitem">Contact</a>
+        <a href="contact.html"  class="btn btn-primary nav__cta">Get a Quote</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-label="Contact page header">
+    <div class="page-hero__bg" style="background-image:url('assets/images/img12.jpg');" role="img" aria-label="Freshly prepared grilled chicken with fries"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <p class="page-hero__label">We'd Love to Hear From You</p>
+      <h1 class="page-hero__title">Get in <em>Touch</em></h1>
+    </div>
+  </header>
+
+  <!-- QUICK STRIP -->
+  <div class="contact-header-strip" role="complementary" aria-label="Quick contact info">
+    <div class="container" style="display:flex;justify-content:center;gap:64px;flex-wrap:wrap;align-items:center;">
+      <div>
+        <strong>Call Us</strong>
+        <p>Contact us directly for a quick chat</p>
+      </div>
+      <div style="width:1px;height:40px;background:rgba(0,0,0,0.15);"></div>
+      <div>
+        <strong>info@adzcatering.co.uk</strong>
+        <p>We'll respond within 24 hours</p>
+      </div>
+      <div style="width:1px;height:40px;background:rgba(0,0,0,0.15);"></div>
+      <div>
+        <strong>United Kingdom</strong>
+        <p>Serving construction sites nationwide</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO CARDS -->
+  <section style="padding:72px 0 0;" aria-label="Contact information">
+    <div class="container">
+      <div class="info-cards reveal">
+        <div class="info-card">
+          <span class="info-card__icon">📞</span>
+          <p class="info-card__title">Phone</p>
+          <p class="info-card__value">Call Us Directly</p>
+          <p class="info-card__sub">Speak to our team for a fast response on any catering enquiry</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card__icon">✉️</span>
+          <p class="info-card__title">Email</p>
+          <p class="info-card__value">
+            <a href="mailto:info@adzcatering.co.uk" class="info-card__link">info@adzcatering.co.uk</a>
+          </p>
+          <p class="info-card__sub">Send us your enquiry and we'll get back to you within 24 hours</p>
+        </div>
+        <div class="info-card">
+          <span class="info-card__icon">📍</span>
+          <p class="info-card__title">Location</p>
+          <p class="info-card__value">United Kingdom</p>
+          <p class="info-card__sub">Operating across UK construction sites — from London to the North</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM + INFO -->
+  <section class="section" aria-label="Contact form">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: Info Panel -->
+        <div class="reveal">
+          <p class="eyebrow">Let's Talk</p>
+          <h2 class="display-title">Request a <em>Free Quote</em></h2>
+          <div class="amber-rule"></div>
+          <p style="font-size:15px;color:var(--cream-dim);line-height:1.8;margin-bottom:40px;">Whether you need a full cafeteria setup, a mobile food truck, or just want to discuss options for your site — we're here to help. Fill in the form and one of our team will be in touch promptly.</p>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon">📞</div>
+            <div>
+              <p class="contact-info__label">Phone</p>
+              <p class="contact-info__value">Contact us for direct line details</p>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon">✉️</div>
+            <div>
+              <p class="contact-info__label">Email</p>
+              <p class="contact-info__value"><a href="mailto:info@adzcatering.co.uk" style="color:var(--amber);border-bottom:1px solid rgba(212,146,42,0.4);">info@adzcatering.co.uk</a></p>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon">⏱️</div>
+            <div>
+              <p class="contact-info__label">Response Time</p>
+              <p class="contact-info__value">Within 24 business hours</p>
+            </div>
+          </div>
+
+          <div class="contact-info__item">
+            <div class="contact-info__icon">📍</div>
+            <div>
+              <p class="contact-info__label">Service Area</p>
+              <p class="contact-info__value">United Kingdom — nationwide construction site coverage</p>
+            </div>
+          </div>
+
+          <div style="margin-top:40px;padding:28px;background:var(--card);border:1px solid var(--border);border-radius:3px;border-left:3px solid var(--amber);">
+            <p style="font-size:13px;font-weight:600;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Working Hours</p>
+            <p style="font-size:14px;color:var(--cream-dim);line-height:1.7;">Monday – Friday: 6:00 AM – 4:00 PM<br>Saturday: By arrangement<br>Sunday: Closed</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="contact-form-wrap reveal reveal-delay-2">
+          <h3>Send an Enquiry</h3>
+          <p class="form-sub">Fill in the form below and we'll prepare a tailored catering proposal for your site.</p>
+
+          <form id="contactForm" novalidate aria-label="Contact and enquiry form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" placeholder="John" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" placeholder="john.smith@yourcompany.co.uk" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+44 7XXX XXX XXX" autocomplete="tel">
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company / Organisation</label>
+              <input type="text" id="company" name="company" placeholder="Your company name" autocomplete="organization">
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service Required</label>
+              <select id="service" name="service">
+                <option value="" disabled selected>Select a service...</option>
+                <option value="cafeteria">On-Site Cafeteria Installation</option>
+                <option value="truck">Mobile Food Truck</option>
+                <option value="vending">Vending Machines</option>
+                <option value="cabin">Food Cabin</option>
+                <option value="meeting">Meeting Catering</option>
+                <option value="office">Office Provisions</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="workers">Approx. Number of Workers</label>
+                <input type="number" id="workers" name="workers" placeholder="e.g. 50" min="1">
+              </div>
+              <div class="form-group">
+                <label for="startDate">Expected Start Date</label>
+                <input type="date" id="startDate" name="startDate">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message *</label>
+              <textarea id="message" name="message" placeholder="Tell us about your project, site location, specific requirements, and any questions you have..." required></textarea>
+            </div>
+
+            <div style="margin-bottom:24px;">
+              <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;font-size:12px;color:var(--muted);text-transform:none;letter-spacing:0;">
+                <input type="checkbox" id="consent" name="consent" required style="width:auto;margin-top:2px;accent-color:var(--amber);">
+                <span>I agree to Ad'z Catering Limited processing my data in accordance with the <a href="#" style="color:var(--amber);">Privacy Policy</a>.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:16px;">
+              Send Enquiry &nbsp; &#8594;
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- MAP -->
+      <div class="map-container reveal" aria-label="Location map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9930.894000000001!2d-0.1276!3d51.5074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2suk!4v1680000000000!5m2!1sen!2suk"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ad'z Catering Limited service area — United Kingdom"
+          aria-label="Map showing UK service area">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--light" aria-label="Frequently asked questions">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:start;" class="reveal">
+        <div>
+          <p class="eyebrow">Got Questions?</p>
+          <h2 class="display-title">Frequently <em>Asked</em></h2>
+          <p class="lead" style="margin-bottom:32px;">Can't find what you need? Contact us and we'll be happy to help.</p>
+          <a href="mailto:info@adzcatering.co.uk" class="btn btn-primary">Email Us Directly</a>
+        </div>
+        <div>
+          <div class="faq-item" role="article">
+            <h3 class="faq-q" onclick="toggleFaq(this)">How quickly can you set up a cafeteria on our site?</h3>
+            <p class="faq-a">Depending on the type of solution required, we can typically have a mobile food truck operational within days and a full cafeteria installation ready within 1–2 weeks of confirmation. We work around your site schedule to minimise disruption.</p>
+          </div>
+          <div class="faq-item" role="article">
+            <h3 class="faq-q" onclick="toggleFaq(this)">What size sites do you cater for?</h3>
+            <p class="faq-a">We cater for sites of all sizes — from small teams of 20 to large developments with hundreds of workers. Our flexible range of solutions (mobile trucks, food cabins, vending, full cafeterias) means we can find the right fit for any project.</p>
+          </div>
+          <div class="faq-item" role="article">
+            <h3 class="faq-q" onclick="toggleFaq(this)">Do you accommodate dietary requirements?</h3>
+            <p class="faq-a">Yes — our menu includes vegetarian options, and we are happy to discuss specific dietary needs or allergy requirements with our clients. We aim to provide a menu that works for your entire workforce.</p>
+          </div>
+          <div class="faq-item" role="article">
+            <h3 class="faq-q" onclick="toggleFaq(this)">Are you fully compliant with UK food safety regulations?</h3>
+            <p class="faq-a">Absolutely. We hold all necessary food safety certifications, maintain the highest hygiene standards, and ensure all our staff are trained in food safety practices. We are fully compliant with all relevant UK legislation.</p>
+          </div>
+          <div class="faq-item" role="article">
+            <h3 class="faq-q" onclick="toggleFaq(this)">Can you provide catering for the entire duration of a long project?</h3>
+            <p class="faq-a">Yes — we specialise in long-term site catering partnerships. Our projects with Countryside and Bovis Homes demonstrate our ability to reliably serve a workforce for the full duration of a major construction project, adapting as the team's needs change.</p>
+          </div>
+          <div class="faq-item" role="article">
+            <h3 class="faq-q" onclick="toggleFaq(this)">How do I get a quote?</h3>
+            <p class="faq-a">Simply fill in the contact form above, email us, or call us directly. We'll ask you a few questions about your site, workforce size, and what you need — then put together a tailored proposal at no obligation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CTA STRIP -->
+  <section class="cta-banner" aria-label="Final call to action">
+    <div class="cta-banner__bg" style="background-image:url('assets/images/img16.jpg');" role="img" aria-label="Full English breakfast"></div>
+    <div class="cta-banner__overlay"></div>
+    <div class="cta-banner__content reveal">
+      <p class="eyebrow" style="justify-content:center;">No Obligation</p>
+      <h2 class="cta-banner__title">Ready to <em>Get Started?</em></h2>
+      <p class="cta-banner__text">Let's build something great together. A well-fed team is a winning team — let Ad'z Catering make it happen on your next project.</p>
+      <div class="cta-banner__actions">
+        <a href="services.html" class="btn btn-primary">See Our Services</a>
+        <a href="menu.html"     class="btn btn-outline">View Our Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo-main">AD'Z</div>
+          <span class="footer__logo-sub">Catering Limited</span>
+          <p class="footer__tagline">Fuelling construction sites with quality, nutritious meals. Setting the standard in on-site catering across the UK.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-btn" aria-label="Facebook">f</a>
+            <a href="#" class="footer__social-btn" aria-label="Instagram">&#9632;</a>
+            <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Navigation</h3>
+          <div class="footer__links">
+            <a href="index.html"    class="footer__link">Home</a>
+            <a href="about.html"    class="footer__link">About Us</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="menu.html"     class="footer__link">Our Menu</a>
+            <a href="gallery.html"  class="footer__link">Gallery</a>
+            <a href="contact.html"  class="footer__link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Services</h3>
+          <div class="footer__links">
+            <a href="services.html" class="footer__link">On-Site Cafeteria</a>
+            <a href="services.html" class="footer__link">Mobile Food Trucks</a>
+            <a href="services.html" class="footer__link">Vending Machines</a>
+            <a href="services.html" class="footer__link">Food Cabins</a>
+            <a href="services.html" class="footer__link">Meeting Catering</a>
+            <a href="services.html" class="footer__link">Office Provisions</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Contact</h3>
+          <div class="footer__links">
+            <span class="footer__link"><span class="footer__link-icon">📞</span> Contact us for details</span>
+            <a href="mailto:info@adzcatering.co.uk" class="footer__link"><span class="footer__link-icon">✉</span> info@adzcatering.co.uk</a>
+            <span class="footer__link"><span class="footer__link-icon">📍</span> United Kingdom</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 Ad'z Catering Limited. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn">f</a>
+          <a href="#" class="footer__social-btn">&#9632;</a>
+          <a href="#" class="footer__social-btn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ad'z Catering Limited photo gallery — browse our freshly prepared meals, on-site cafeteria setups, mobile food units, and the quality food we serve daily to construction workers across the UK.">
+  <title>Gallery — Ad'z Catering Limited</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .gallery-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .gallery-count {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .gallery-count span { color: var(--amber); }
+
+    /* Masonry-style varied sizes */
+    .gallery-grid-masonry {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 240px;
+      gap: 4px;
+    }
+    .gallery-grid-masonry .gallery-item:nth-child(4n+1) { grid-row: span 2; }
+    .gallery-grid-masonry .gallery-item:nth-child(7n+3) { grid-column: span 2; }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      background: var(--card);
+    }
+    .gallery-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s var(--ease);
+      display: block;
+    }
+    .gallery-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.35s;
+    }
+    .gallery-item__overlay svg {
+      width: 48px; height: 48px;
+      color: #fff;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.3s, transform 0.35s var(--ease);
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.7));
+    }
+    .gallery-item:hover img { transform: scale(1.1); }
+    .gallery-item:hover .gallery-item__overlay { background: rgba(212,146,42,0.2); }
+    .gallery-item:hover .gallery-item__overlay svg { opacity: 1; transform: scale(1); }
+
+    /* Feature strip at top */
+    .gallery-feature {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 380px;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .gallery-feature__item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      background: var(--card);
+    }
+    .gallery-feature__item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .gallery-feature__item:hover img { transform: scale(1.06); }
+    .gallery-feature__item .gallery-item__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.35s;
+    }
+    .gallery-feature__item:hover .gallery-item__overlay { background: rgba(212,146,42,0.18); }
+    .gallery-feature__item:hover .gallery-item__overlay svg { opacity: 1; transform: scale(1); }
+    .gallery-feature__item .gallery-item__overlay svg {
+      width: 48px; height: 48px;
+      color: #fff;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.3s, transform 0.35s var(--ease);
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.7));
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-grid-masonry {
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 220px;
+      }
+      .gallery-feature { grid-template-columns: 1fr 1fr; }
+      .gallery-feature__item:last-child { display: none; }
+    }
+    @media (max-width: 768px) {
+      .gallery-grid-masonry {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+      }
+      .gallery-grid-masonry .gallery-item:nth-child(4n+1) { grid-row: span 1; }
+      .gallery-grid-masonry .gallery-item:nth-child(7n+3) { grid-column: span 1; }
+      .gallery-feature { grid-template-columns: 1fr; grid-template-rows: 280px; }
+      .gallery-feature__item:not(:first-child) { display: none; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid-masonry { grid-auto-rows: 170px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-main">AD'Z</span>
+        <span class="nav__logo-sub">Catering Limited</span>
+      </a>
+      <div class="nav__links" role="menubar">
+        <a href="index.html"    class="nav__link" role="menuitem">Home</a>
+        <a href="about.html"    class="nav__link" role="menuitem">About</a>
+        <a href="services.html" class="nav__link" role="menuitem">Services</a>
+        <a href="menu.html"     class="nav__link" role="menuitem">Menu</a>
+        <a href="gallery.html"  class="nav__link active" role="menuitem">Gallery</a>
+        <a href="contact.html"  class="nav__link" role="menuitem">Contact</a>
+        <a href="contact.html"  class="btn btn-primary nav__cta">Get a Quote</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" aria-label="Gallery page header">
+    <div class="page-hero__bg" style="background-image:url('assets/images/img05.jpg');" role="img" aria-label="Hot food counter display"></div>
+    <div class="page-hero__overlay"></div>
+    <div class="page-hero__content">
+      <p class="page-hero__label">Fresh Food, Every Day</p>
+      <h1 class="page-hero__title">Our <em>Gallery</em></h1>
+    </div>
+  </header>
+
+  <!-- GALLERY SECTION -->
+  <section class="section" aria-label="Photo gallery">
+    <div class="container">
+      <div class="gallery-intro reveal">
+        <div>
+          <p class="eyebrow">Visual Feast</p>
+          <h2 class="display-title">See What We <em>Serve</em></h2>
+          <p class="lead">Every photo below is a real dish, prepared fresh by our team. From hearty full English breakfasts to grilled chicken wraps — quality you can see.</p>
+        </div>
+        <div>
+          <p class="gallery-count"><span>35+</span> Photos</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURE STRIP (first 3 hero images) -->
+    <div class="gallery-feature reveal reveal-delay-1">
+      <div class="gallery-feature__item" data-index="0">
+        <img src="assets/images/img35.jpg" alt="Grilled chicken with rice — freshly prepared on site" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+      <div class="gallery-feature__item" data-index="1">
+        <img src="assets/images/img01.jpg" alt="Full English breakfast with beans, bacon and eggs" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+      <div class="gallery-feature__item" data-index="2">
+        <img src="assets/images/img05.jpg" alt="Hot food counter with freshly prepared dishes" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN GALLERY GRID -->
+    <div class="gallery-grid-masonry reveal reveal-delay-2" id="galleryGrid" role="list" aria-label="Food photo gallery">
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img03.jpg" alt="Fresh omelette with baked beans and fries" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img10.jpg" alt="Chicken wrap with fries served on site" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img12.jpg" alt="Grilled chicken with peas and fries" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img16.jpg" alt="Full English breakfast on a white plate" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img22.jpg" alt="Panini with chips and salad at the counter" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img21.jpg" alt="Chicken wraps freshly made" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img02.jpg" alt="Hot meal freshly plated" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img04.jpg" alt="Freshly prepared construction site meal" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img06.jpg" alt="Hot food served at the cafeteria counter" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img07.jpg" alt="Fresh meal prepared for construction workers" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img08.jpg" alt="Ad'z Kitchen freshly plated food" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img09.jpg" alt="Hot meal served at construction site canteen" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img11.jpg" alt="Freshly cooked food on site" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img13.jpg" alt="Hot plate served at Ad'z Kitchen" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img14.jpg" alt="Quality meal served to construction workers" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img15.jpg" alt="Freshly prepared food for the build crew" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img17.jpg" alt="Hot meal on a plate served on construction site" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img18.jpg" alt="Ad'z Catering freshly served food" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img19.jpg" alt="Nutritious meal ready to serve" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img20.jpg" alt="Quality hot food at Ad'z Kitchen" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img23.jpg" alt="Food service at construction site cafeteria" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img24.jpg" alt="Fresh food prepared by Ad'z Catering team" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img25.jpg" alt="Hot meal at the construction canteen" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img26.jpg" alt="Plated food from Ad'z Kitchen" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img27.jpg" alt="Hearty on-site meal served fresh" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img28.jpg" alt="Construction site canteen food display" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img29.jpg" alt="Ad'z Catering fresh hot meal" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img30.jpg" alt="Freshly prepared on-site catering" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img31.jpg" alt="Quality food served to construction crew" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img32.jpg" alt="Hot plate prepared by Ad'z Kitchen" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img33.jpg" alt="Fresh meal display at site cafeteria counter" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/img34.jpg" alt="Nutritious hot food from Ad'z Catering" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+
+    </div>
+    <!-- END GALLERY GRID -->
+
+    <!-- BRAND IMAGES ROW -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:4px;" class="reveal">
+      <div style="overflow:hidden;height:340px;cursor:pointer;position:relative;" class="gallery-item">
+        <img src="assets/images/logo-catering.jpg" alt="Ad'z Catering Limited — Brand illustration with construction site cafe" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+      <div style="overflow:hidden;height:340px;cursor:pointer;position:relative;" class="gallery-item">
+        <img src="assets/images/logo-kitchen.jpg" alt="Ad'z Kitchen — Brand illustration with crane and cafe" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+        <div class="gallery-item__overlay">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"/></svg>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
+    <button class="lightbox__close" aria-label="Close lightbox">&#x2715;</button>
+    <button class="lightbox__nav lightbox__prev" aria-label="Previous image">&#8249;</button>
+    <img class="lightbox__img" src="" alt="Gallery photo enlarged">
+    <button class="lightbox__nav lightbox__next" aria-label="Next image">&#8250;</button>
+    <span class="lightbox__counter" aria-live="polite"></span>
+  </div>
+
+  <!-- CTA -->
+  <section style="background:var(--surface);padding:72px 0;text-align:center;border-top:1px solid var(--border);" aria-label="Contact call to action">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow" style="justify-content:center;">Like What You See?</p>
+        <h2 class="display-title" style="text-align:center;">Bring This Quality to <em>Your Site</em></h2>
+        <p class="lead" style="margin:0 auto 36px;text-align:center;">Contact us to discuss bringing Ad'z Catering to your next construction project. We'll serve your team the same quality you see here — every single day.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary">Get a Free Quote</a>
+          <a href="menu.html"    class="btn btn-outline">View Our Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo-main">AD'Z</div>
+          <span class="footer__logo-sub">Catering Limited</span>
+          <p class="footer__tagline">Fuelling construction sites with quality, nutritious meals. Setting the standard in on-site catering across the UK.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-btn" aria-label="Facebook">f</a>
+            <a href="#" class="footer__social-btn" aria-label="Instagram">&#9632;</a>
+            <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Navigation</h3>
+          <div class="footer__links">
+            <a href="index.html"    class="footer__link">Home</a>
+            <a href="about.html"    class="footer__link">About Us</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="menu.html"     class="footer__link">Our Menu</a>
+            <a href="gallery.html"  class="footer__link">Gallery</a>
+            <a href="contact.html"  class="footer__link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Services</h3>
+          <div class="footer__links">
+            <a href="services.html" class="footer__link">On-Site Cafeteria</a>
+            <a href="services.html" class="footer__link">Mobile Food Trucks</a>
+            <a href="services.html" class="footer__link">Vending Machines</a>
+            <a href="services.html" class="footer__link">Food Cabins</a>
+            <a href="services.html" class="footer__link">Meeting Catering</a>
+            <a href="services.html" class="footer__link">Office Provisions</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Contact</h3>
+          <div class="footer__links">
+            <span class="footer__link"><span class="footer__link-icon">📞</span> Contact us for details</span>
+            <a href="mailto:info@adzcatering.co.uk" class="footer__link"><span class="footer__link-icon">✉</span> info@adzcatering.co.uk</a>
+            <span class="footer__link"><span class="footer__link-icon">📍</span> United Kingdom</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 Ad'z Catering Limited. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn">f</a>
+          <a href="#" class="footer__social-btn">&#9632;</a>
+          <a href="#" class="footer__social-btn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Include feature strip items in the lightbox gallery
+    document.querySelectorAll('.gallery-feature__item').forEach((item, i) => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const lightbox = document.querySelector('.lightbox');
+        const lightboxImg = document.querySelector('.lightbox__img');
+        const allImgs = Array.from(document.querySelectorAll('.gallery-item img, .gallery-feature__item img'));
+        const idx = allImgs.findIndex(el => el.src === img.src);
+        if (lightboxImg) {
+          lightboxImg.src = img.src;
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

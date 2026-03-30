@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ad'z Catering Limited menu — full English breakfast sets, omelettes, sandwiches, burgers, jacket potatoes, wraps, and snacks. Fresh food served daily at construction sites.">
+  <title>Our Menu — Ad'z Catering Limited</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: #0C0C0C; }
+
+    .menu-nav-bar {
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 100;
+      background: rgba(12,12,12,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 28px;
+    }
+    .menu-nav-bar__inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .menu-nav-bar__inner::-webkit-scrollbar { display: none; }
+    .menu-jump {
+      padding: 16px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .menu-jump:hover, .menu-jump.active {
+      color: var(--amber);
+      border-color: var(--amber);
+    }
+
+    .menu-food-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 300px;
+      gap: 2px;
+      margin-bottom: 2px;
+    }
+    .menu-food-strip__item {
+      overflow: hidden;
+      position: relative;
+    }
+    .menu-food-strip__item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+      transition: filter 0.4s, transform 0.5s;
+    }
+    .menu-food-strip__item:hover img {
+      filter: brightness(0.9);
+      transform: scale(1.05);
+    }
+    .menu-food-strip__label {
+      position: absolute;
+      bottom: 16px; left: 16px;
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+
+    .menu-note {
+      background: var(--amber-dim);
+      border: 1px solid var(--amber-mid);
+      border-radius: 3px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .menu-note__icon { font-size: 22px; flex-shrink: 0; }
+    .menu-note__text { font-size: 13.5px; color: var(--cream-dim); line-height: 1.5; }
+    .menu-note__text strong { color: var(--amber); }
+
+    @media (max-width: 768px) {
+      .menu-food-strip { grid-template-columns: repeat(2, 1fr); height: 240px; }
+      .menu-cat { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+      .menu-food-strip { grid-template-columns: 1fr 1fr; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav scrolled" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-main">AD'Z</span>
+        <span class="nav__logo-sub">Catering Limited</span>
+      </a>
+      <div class="nav__links" role="menubar">
+        <a href="index.html"    class="nav__link" role="menuitem">Home</a>
+        <a href="about.html"    class="nav__link" role="menuitem">About</a>
+        <a href="services.html" class="nav__link" role="menuitem">Services</a>
+        <a href="menu.html"     class="nav__link active" role="menuitem">Menu</a>
+        <a href="gallery.html"  class="nav__link" role="menuitem">Gallery</a>
+        <a href="contact.html"  class="nav__link" role="menuitem">Contact</a>
+        <a href="contact.html"  class="btn btn-primary nav__cta">Get a Quote</a>
+      </div>
+      <button class="nav__toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MENU HERO -->
+  <header class="menu-board-hero" aria-label="Menu header">
+    <h1 class="menu-board-hero__title">MENU</h1>
+    <p class="menu-board-hero__sub">Fresh. Hot. Prepared Daily &nbsp;&mdash;&nbsp; Ad'z Kitchen</p>
+  </header>
+
+  <!-- FOOD PHOTO STRIP -->
+  <div class="menu-food-strip" aria-label="Food photos">
+    <div class="menu-food-strip__item">
+      <img src="assets/images/img01.jpg" alt="Full English breakfast" loading="lazy">
+      <span class="menu-food-strip__label">Breakfast</span>
+    </div>
+    <div class="menu-food-strip__item">
+      <img src="assets/images/img03.jpg" alt="Omelette with beans and fries" loading="lazy">
+      <span class="menu-food-strip__label">Omelettes</span>
+    </div>
+    <div class="menu-food-strip__item">
+      <img src="assets/images/img10.jpg" alt="Chicken wrap with fries" loading="lazy">
+      <span class="menu-food-strip__label">Wraps &amp; Sandwiches</span>
+    </div>
+    <div class="menu-food-strip__item">
+      <img src="assets/images/img12.jpg" alt="Grilled chicken with peas and fries" loading="lazy">
+      <span class="menu-food-strip__label">Hot Mains</span>
+    </div>
+  </div>
+
+  <!-- MENU JUMP NAV -->
+  <div class="menu-nav-bar" role="navigation" aria-label="Menu sections">
+    <div class="menu-nav-bar__inner">
+      <button class="menu-jump active" onclick="scrollToSection('breakfast')">Breakfast</button>
+      <button class="menu-jump" onclick="scrollToSection('omelettes')">Omelettes</button>
+      <button class="menu-jump" onclick="scrollToSection('sandwiches')">Sandwiches</button>
+      <button class="menu-jump" onclick="scrollToSection('burgers')">Burgers</button>
+      <button class="menu-jump" onclick="scrollToSection('on-toast')">On Toast</button>
+      <button class="menu-jump" onclick="scrollToSection('jacket-potatoes')">Jacket Potatoes</button>
+      <button class="menu-jump" onclick="scrollToSection('snacks')">Snacks &amp; Drinks</button>
+    </div>
+  </div>
+
+  <!-- MENU BODY -->
+  <main class="menu-board-body" aria-label="Full menu">
+    <div class="container">
+
+      <div class="menu-note reveal">
+        <span class="menu-note__icon">ℹ️</span>
+        <p class="menu-note__text"><strong>Please note:</strong> Menu items and availability may vary by site and service type. Contact us to confirm pricing and daily specials for your project. All food is freshly prepared to order.</p>
+      </div>
+
+      <!-- BREAKFAST -->
+      <div id="breakfast" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">🍳</span>
+          <h2 class="menu-cat__title">Breakfast</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">All breakfast sets served with 2 toasts</p>
+        <div style="margin-bottom:32px;">
+          <img src="assets/images/img16.jpg" alt="Full English breakfast on a plate" style="width:100%;height:260px;object-fit:cover;object-position:center 30%;border-radius:3px;margin-bottom:28px;" loading="lazy">
+        </div>
+        <div class="menu-items-grid">
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Set 1 — Egg, Bacon, Sausage, Beans</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Set Breakfast</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Set 2 — Egg, Bacon, Sausage, Fried Tomato</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Set Breakfast</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Set 3 — Egg, Bacon, Sausage, Hashbrown</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Set Breakfast</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Set 4 — Bacon, Sausage, Hashbrown, Mushroom</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Set Breakfast</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Set 5 — Egg, Mushroom, Hashbrown, Fried Tomato, Beans</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Set Breakfast</span>
+            </div>
+          </div>
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Mega Breakfast Set</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">2 Eggs, 2 Sausages, Bacon, Mushroom, Hashbrown, Beans</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Full English Breakfast</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Egg, Bacon, Sausage, Hashbrown, Mushroom, Beans, Fried Tomato</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OMELETTES -->
+      <div id="omelettes" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">🥚</span>
+          <h2 class="menu-cat__title">Omelettes</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">Freshly made omelettes served hot</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px;">
+          <img src="assets/images/img03.jpg" alt="Omelette with beans and fries" style="width:100%;height:220px;object-fit:cover;border-radius:3px;" loading="lazy">
+          <img src="assets/images/img17.jpg" alt="Freshly made omelette" style="width:100%;height:220px;object-fit:cover;border-radius:3px;" loading="lazy">
+        </div>
+        <div class="menu-items-grid">
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Cheese Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Classic</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Cheese &amp; Ham Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Chicken Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Chicken &amp; Cheese Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+          </div>
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Bacon Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Bacon &amp; Cheese Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Veggie Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Vegetarian</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Spanish Omelette</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Ham, Cheese, Mushroom, Onion &amp; Tomato</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Cheese, Ham &amp; Mushroom</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SANDWICHES -->
+      <div id="sandwiches" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">🥖</span>
+          <h2 class="menu-cat__title">Sandwiches</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">Available as Roll, Sandwich, or Baguette</p>
+        <div style="margin-bottom:28px;">
+          <img src="assets/images/img22.jpg" alt="Panini with chips and salad" style="width:100%;height:240px;object-fit:cover;border-radius:3px;" loading="lazy">
+        </div>
+        <div class="menu-items-grid">
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Egg</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Bacon</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Sausage</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Egg &amp; Bacon</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Egg, Bacon &amp; Sausage</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Bacon &amp; Sausage</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+          </div>
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">BLT</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Bacon, Lettuce, Tomato</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Tuna Mayo &amp; Salad</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Grilled Chicken &amp; Avocado</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Grilled Chicken &amp; Salad</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Roll / Sandwich / Baguette</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BURGERS -->
+      <div id="burgers" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">🍔</span>
+          <h2 class="menu-cat__title">Burgers</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">All burgers served with salad &amp; cheese</p>
+        <div style="margin-bottom:28px;">
+          <img src="assets/images/img13.jpg" alt="Freshly prepared burger and sides" style="width:100%;height:220px;object-fit:cover;border-radius:3px;" loading="lazy">
+        </div>
+        <div class="menu-items-grid">
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">¼ Pounder Cheese</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">¼ Pounder Cheese &amp; Egg</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">¼ Pounder Cheese, Egg &amp; Bacon</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">½ Pounder Cheese</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Large</span>
+            </div>
+          </div>
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">½ Pounder Cheese &amp; Egg</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Large</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">½ Pounder Cheese, Egg &amp; Bacon</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Large</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Chicken Burger</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Veggie Burger</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Vegetarian</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ON TOAST -->
+      <div id="on-toast" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">🍞</span>
+          <h2 class="menu-cat__title">On Toast</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">Served on 2 slices of toast or bread</p>
+        <div class="menu-items-grid">
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">2 Eggs on Toast</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Scrambled or Fried</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Jam / Marmalade / Chocolate on Toast</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">2 Toasts</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Beans on Toast</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">2 Toasts</span>
+            </div>
+          </div>
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Crushed Avocado with Halloumi</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Vegetarian</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">2 Toasts or Slice Bread</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Plain</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JACKET POTATOES -->
+      <div id="jacket-potatoes" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">🥔</span>
+          <h2 class="menu-cat__title">Jacket Potatoes</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">Freshly baked jacket potatoes with your choice of filling</p>
+        <div class="menu-items-grid">
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Cheese</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Vegetarian</span>
+            </div>
+            <div class="menu-item">
+              <span class="menu-item__name">Cheese &amp; Beans</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag">Vegetarian</span>
+            </div>
+          </div>
+          <div>
+            <div class="menu-item">
+              <span class="menu-item__name">Tuna Mayo</span>
+              <div class="menu-item__dots"></div>
+              <span class="menu-item__tag"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SNACKS & DRINKS -->
+      <div id="snacks" class="menu-cat reveal">
+        <div class="menu-cat__header">
+          <span class="menu-cat__icon">☕</span>
+          <h2 class="menu-cat__title">Snacks &amp; Drinks</h2>
+          <div class="menu-cat__divider"></div>
+        </div>
+        <p class="menu-cat__desc">Hot drinks, cold drinks, and light snacks available throughout the day</p>
+
+        <p style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">Hot Drinks</p>
+        <div class="menu-drinks-grid" style="margin-bottom:32px;">
+          <div class="drink-pill">Tea</div>
+          <div class="drink-pill">Latte</div>
+          <div class="drink-pill">Cappuccino</div>
+          <div class="drink-pill">Mocha</div>
+          <div class="drink-pill">Hot Chocolate</div>
+          <div class="drink-pill">Espresso</div>
+        </div>
+
+        <p style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">Cold Drinks</p>
+        <div class="menu-drinks-grid" style="margin-bottom:32px;">
+          <div class="drink-pill">Cans</div>
+          <div class="drink-pill">Bottle</div>
+          <div class="drink-pill">Red Bull</div>
+          <div class="drink-pill">Water</div>
+        </div>
+
+        <p style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">Snacks</p>
+        <div class="menu-drinks-grid">
+          <div class="drink-pill">Chocolate Bar</div>
+          <div class="drink-pill">Crisps</div>
+          <div class="drink-pill">Muffin</div>
+        </div>
+      </div>
+
+      <!-- ALLERGENS NOTE -->
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:3px;padding:28px 36px;margin-top:16px;" class="reveal">
+        <div style="display:flex;align-items:flex-start;gap:16px;">
+          <span style="font-size:28px;flex-shrink:0;">⚠️</span>
+          <div>
+            <h3 style="font-size:16px;font-weight:600;color:var(--cream);margin-bottom:8px;">Allergen Information</h3>
+            <p style="font-size:13.5px;color:var(--muted);line-height:1.75;">Our food is prepared in a kitchen environment where allergens are present. If you or any member of your team has a food allergy, intolerance, or dietary requirement, please speak to our team before ordering. We will do our best to accommodate all dietary needs.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- CTA -->
+  <section style="background:var(--amber);padding:64px 0;text-align:center;" aria-label="Order or enquire">
+    <div class="container">
+      <div class="reveal">
+        <h2 style="font-family:var(--font-display);font-size:clamp(32px,5vw,56px);font-weight:700;color:#0A0A0A;margin-bottom:16px;">Want This Menu on <em style="font-style:italic;">Your Site?</em></h2>
+        <p style="font-size:16px;color:rgba(8,8,8,0.65);margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto;">Contact our team to discuss delivering this menu to your construction site — we'll tailor it to your team's size and preferences.</p>
+        <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-dark">Get a Quote</a>
+          <a href="gallery.html" class="btn btn-dark">View Gallery</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo-main">AD'Z</div>
+          <span class="footer__logo-sub">Catering Limited</span>
+          <p class="footer__tagline">Fuelling construction sites with quality, nutritious meals. Setting the standard in on-site catering across the UK.</p>
+          <div class="footer__socials">
+            <a href="#" class="footer__social-btn" aria-label="Facebook">f</a>
+            <a href="#" class="footer__social-btn" aria-label="Instagram">&#9632;</a>
+            <a href="#" class="footer__social-btn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Navigation</h3>
+          <div class="footer__links">
+            <a href="index.html"    class="footer__link">Home</a>
+            <a href="about.html"    class="footer__link">About Us</a>
+            <a href="services.html" class="footer__link">Services</a>
+            <a href="menu.html"     class="footer__link">Our Menu</a>
+            <a href="gallery.html"  class="footer__link">Gallery</a>
+            <a href="contact.html"  class="footer__link">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Menu Sections</h3>
+          <div class="footer__links">
+            <a href="#breakfast"       class="footer__link">Breakfast</a>
+            <a href="#omelettes"       class="footer__link">Omelettes</a>
+            <a href="#sandwiches"      class="footer__link">Sandwiches</a>
+            <a href="#burgers"         class="footer__link">Burgers</a>
+            <a href="#on-toast"        class="footer__link">On Toast</a>
+            <a href="#jacket-potatoes" class="footer__link">Jacket Potatoes</a>
+            <a href="#snacks"          class="footer__link">Snacks &amp; Drinks</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Contact</h3>
+          <div class="footer__links">
+            <span class="footer__link"><span class="footer__link-icon">📞</span> Contact us for details</span>
+            <a href="mailto:info@adzcatering.co.uk" class="footer__link"><span class="footer__link-icon">✉</span> info@adzcatering.co.uk</a>
+            <span class="footer__link"><span class="footer__link-icon">📍</span> United Kingdom</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; 2025 Ad'z Catering Limited. All rights reserved.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__social-btn">f</a>
+          <a href="#" class="footer__social-btn">&#9632;</a>
+          <a href="#" class="footer__social-btn">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        const offset = 130;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+      document.querySelectorAll('.menu-jump').forEach(b => b.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+    }
+
+    // Highlight active section on scroll
+    const sections = ['breakfast','omelettes','sandwiches','burgers','on-toast','jacket-potatoes','snacks'];
+    const jumps = document.querySelectorAll('.menu-jump');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 160) current = id;
+      });
+      jumps.forEach((btn, i) => {
+        btn.classList.toggle('active', sections[i] === current);
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
