@@ -199,7 +199,7 @@
       text += `─────────────────────\n`;
       text += `_Sent via adzcatering.co.uk_`;
 
-      const waUrl = `https://wa.me/447384583976?text=${encodeURIComponent(text)}`;
+      const waUrl = `https://wa.me/447961155023?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
     });
   }
